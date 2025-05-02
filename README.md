@@ -48,20 +48,22 @@ Define a block in your Jinja template:
 And in your view code you use the template name plus the partial block name, like so:
 
 ```python
-# In view handler...
-self.template_name = "example.jinja#test-partial"
+class ExamplePartialView(TemplateView):
+    template_name = "example.jinja#test-partial"
 ```
 
 This is extremely useful in combination with HTMX:
 
 ```python
-def partial_rendering(request: HtmxHttpRequest) -> HttpResponse:
+def example_view(request):
     template_name = "example.jinja"
     if request.htmx:
         template_name += "#test-partial"
 
     return TemplateResponse(request, template_name)
 ```
+
+> _`request.htmx` comes from [django-htmx](https://github.com/adamchainz/django-htmx)_
 
 ## Thanks to
 
