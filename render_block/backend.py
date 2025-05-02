@@ -4,7 +4,8 @@ import sys
 import jinja2
 from django.template import TemplateDoesNotExist, TemplateSyntaxError
 from django_jinja import utils
-from django_jinja.backend import Jinja2, Template, get_exception_info
+from django_jinja.backend import Jinja2 as Jinja2Base
+from django_jinja.backend import Template, get_exception_info
 
 
 class TemplateWithPartial(Template):
@@ -19,7 +20,7 @@ class TemplateWithPartial(Template):
         return super().render(context=context, request=request)
 
 
-class Jinja2(Jinja2):
+class Jinja2(Jinja2Base):
     def get_template(self, template_name):
         try:
             template_name, _, partial_name = template_name.partition("#")
