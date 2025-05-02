@@ -22,8 +22,13 @@ class TemplateWithPartial(Template):
 
 class Jinja2(Jinja2Base):
     def get_template(self, template_name):
+        template_name, _, partial_name = template_name.partition("#")
+
+        if not self.match_template(template_name):
+            message = f"Template {template_name} does not exists"
+            raise TemplateDoesNotExist(message)
+
         try:
-            template_name, _, partial_name = template_name.partition("#")
             template = TemplateWithPartial(self.env.get_template(template_name), self)
             template.partial_name = partial_name
             return template
