@@ -1,0 +1,38 @@
+[project]
+name = "django-jinja-render-block"
+version = "0.1.0"
+description = "Render the content of a specific block tag from a Jinja2 template."
+authors = [
+    {name = "Kevin Renskers", email = "kevin@loopwerk.io"},
+]
+license = "MIT"
+license-files = [ "LICENSE" ]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+  "django-jinja>=2.11.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.11.8",
+]
+
+[project.urls]
+Homepage = "https://github.com/loopwerk/django-jinja-render-block/"
+Repository = "https://github.com/loopwerk/django-jinja-render-block.git"
+Issues = "https://github.com/loopwerk/django-jinja-render-block/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["render_block"]
+
+[tool.ruff]
+line-length = 120
+lint.extend-select = ["I", "N"]
