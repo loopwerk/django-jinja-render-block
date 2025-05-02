@@ -1,5 +1,7 @@
 # django-jinja-render-block
 
+[![pypi](https://img.shields.io/pypi/v/django-jinja-render-block.svg)](https://pypi.org/project/django-jinja-render-block/)
+
 This project aims to bring the super ergomomic partial template rendering of [django-template-partials](https://github.com/carltongibson/django-template-partials) to [django-jinja](https://github.com/niwinz/django-jinja). It's a bit more limited in scope though: instead of allowing you to define reusable (inline) template partials using `{% partialdef partial-name %}`, it limits itself to rendering a block within a template, ala [django-render-block](https://github.com/clokep/django-render-block).
 
 TL;DR: you can render just a block using a template name such as `template-name.jinja#block-name`.
