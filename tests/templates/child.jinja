@@ -1,0 +1,21 @@
+{% extends "base.jinja" %}
+
+{% block title %}Child Title{% endblock %}
+
+{% block body %}
+<h1>Child Page</h1>
+
+{% block nested_content %}
+<div class="nested">
+    <p>This is nested content in child template.</p>
+</div>
+{% endblock %}
+
+{% block another_block %}
+<div class="another">
+    <p>Another block in child template.</p>
+</div>
+{% endblock %}
+
+<p>End of child body</p>
+{% endblock %}

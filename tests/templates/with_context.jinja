@@ -1,0 +1,15 @@
+{% block greeting %}
+<h1>Hello {{ name }}!</h1>
+{% endblock %}
+
+{% block message %}
+<p>Your message: {{ message }}</p>
+{% endblock %}
+
+{% block loop_test %}
+<ul>
+{% for item in items %}
+    <li>{{ item }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

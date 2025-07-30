@@ -52,7 +52,7 @@ class ExamplePartialView(TemplateView):
     template_name = "example.jinja#test-partial"
 ```
 
-This is extremely useful in combination with HTMX:
+This is extremely useful in combination with htmx (or Alpine AJAX):
 
 ```python
 def example_view(request):

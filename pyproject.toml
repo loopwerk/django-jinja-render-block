@@ -15,7 +15,10 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "mypy>=1.15.0",
     "ruff>=0.11.8",
+    "pytest>=8.3.5",
+    "pytest-django>=4.10.0",
 ]
 
 [project.urls]
@@ -24,8 +27,12 @@ Repository = "https://github.com/loopwerk/django-jinja-render-block.git"
 Issues = "https://github.com/loopwerk/django-jinja-render-block/issues"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.7.19,<0.8.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "render_block"
+module-root = ""
 
 [tool.uv]
 package = true
@@ -36,3 +43,13 @@ packages = ["render_block"]
 [tool.ruff]
 line-length = 120
 lint.extend-select = ["I", "N"]
+
+[tool.mypy]
+disable_error_code = ["import-untyped"]
+warn_redundant_casts = true
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+python_files = "test*.py"
+filterwarnings = ["ignore::DeprecationWarning"]
